@@ -4,6 +4,7 @@ export default function SignUpForm({ setToken }) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
+    const [successMessage, setSuccessMessage] = useState(null);
 
     const APISignUp ='https://fsa-jwt-practice.herokuapp.com/signup';
 
@@ -19,6 +20,7 @@ export default function SignUpForm({ setToken }) {
             );
             const result = await response.json();
             setToken(result.token);
+            setSuccessMessage(result.message);
         }
         catch (error) {
             // store a server error in application state and display it
@@ -31,12 +33,21 @@ export default function SignUpForm({ setToken }) {
             alert('Invalid Form, username must be 8 characters long')
             return
         }
+        if (password.length < 8) {
+            alert('Invalid Form, Password must contain greater than or equal to 8 characters.')
+            return
+        }
+        if (username == password) {
+            alert('Invalid Form, Password cant be the same as username.')
+            return
+        }
     }
 
     return (
         <div className="signUpBlock">
             <h2>Sign Up</h2>
             {error && <p>{error}</p>}
+            {successMessage && <p>{successMessage}</p>}
         <form onSubmit={handleSubmit}>
             <label className="username">
                 Username: {" "}

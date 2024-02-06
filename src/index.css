@@ -28,16 +28,18 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: pink;
+  color: white;
 }
 
-h1 {
-  font-size: 3.2em;
+h2 {
   line-height: 1.1;
+  font-size: 40px;
 }
 
 button {
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: 1px solid black;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
@@ -54,29 +56,17 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-h2{
-  color: white;
-}
-
-body {
-  background-color: pink;
-}
-
 form {
   color: #888;
   background-color: white;
   padding: 20px;
-  border: 2px solid black;
+  border: 2px solid transparent;
+  border-radius: 8px;
   margin: 10px;
   display: block;
 }
 
-.username {
-  padding: 20px;
-  display: block;
-}
-
-.password {
+.username,.password  {
   padding: 20px;
   display: block;
 }
